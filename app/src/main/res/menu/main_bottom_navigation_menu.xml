@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <item android:id="@+id/nav_blog"
+          android:title="@string/claims"
+    android:icon="@drawable/ic_claim_white_24dp"/>
+
+    <item android:id="@+id/nav_create_blog"
+          android:title="@string/visits"
+          android:icon="@drawable/ic_visit_log_white_24dp"
+    />
+
+    <item android:id="@+id/nav_account"
+          android:title="@string/alerts"
+          android:icon="@drawable/ic_alert_white_24dp"/>
+
+
+</menu>

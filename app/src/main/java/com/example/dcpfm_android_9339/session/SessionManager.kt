@@ -43,9 +43,10 @@ constructor(
                         var errorMessage: String? = null
                         try {
                                 cachedToken.value!!.account_id?.let {
-//                                        authTokenDao.nullifyId(it)
+                                        authTokenDao.nullifyId(it)
                                         authTokenDao.nullifyToken(it)
                                 }
+
                         }catch (e: CancellationException) {
                                 Log.e(TAG, "logout: ${e.message}")
                                 errorMessage = e.message

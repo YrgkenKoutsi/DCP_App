@@ -8,23 +8,12 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-
-/**
- * Data class for saving authentication token locally for api-test.disastercare.co.uk
- * NOTES:
- * 1) local 'auth_token' table has foreign key relationship to 'login_properties' table through 'account' field (ID)
- *
- * Docs: https://api-test.disastercare.co.uk/api/v1/
- */
-
-
-
 @Entity(
-        tableName = "auth_token",
+        tableName = "login",
         foreignKeys = [
             ForeignKey(
-                    entity = LoginProperties::class,
-                    parentColumns = ["id"],
+                    entity = UserProperties::class,
+                    parentColumns = ["id"], //TODO fix the relationship of foreign keys
                     childColumns = ["account_id"],
                     onDelete = CASCADE
             )
@@ -33,12 +22,17 @@ import com.google.gson.annotations.SerializedName
 data class AuthToken (
 
         @PrimaryKey
-        @Expose
         @ColumnInfo(name = "account_id")
-        var account_id: Int? = -1,
+        var account_id: Int? = null,
 
         @SerializedName("token")
         @Expose
         @ColumnInfo(name = "token")
-        var token: String? = null
+        var token: String? = null,
+
+        @SerializedName("id")
+        @Expose
+        @ColumnInfo(name = "id")
+        var id: Int? = null
+
 )

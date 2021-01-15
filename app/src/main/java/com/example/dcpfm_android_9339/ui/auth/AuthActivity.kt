@@ -68,13 +68,11 @@ class AuthActivity : BaseActivity(),
             }
         })
 
-        sessionManager.cachedToken.observe(this, Observer { dataState ->
+        sessionManager.cachedToken.observe(this, Observer{ dataState ->
             Log.d(TAG, "AuthActivity, subscribeObservers: AuthDataState: ${dataState}")
-            dataState.let { authToken ->
-                if (authToken != null && authToken.account_id != -1 && authToken.token != null) {
+            dataState.let{ authToken ->
+                if(authToken != null && authToken.account_id != -1 && authToken.token != null){
                     navMainActivity()
-
-                    Log.d(TAG, "subscribeObservers: ${authToken.account_id}")
                 }
             }
         })

@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "login_properties")
-data class LoginProperties(
+@Entity(tableName = "user_properties")
+data class UserProperties(
 
         @SerializedName("id")
         @Expose

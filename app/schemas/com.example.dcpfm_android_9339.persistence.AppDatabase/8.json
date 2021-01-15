@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 8,
-    "identityHash": "3fed836b209f187349f7e3ba0a6cb5dc",
+    "identityHash": "88691b4071e19909de14c202f3b300f2",
     "entities": [
       {
-        "tableName": "auth_token",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER, `token` TEXT, `id` INTEGER, PRIMARY KEY(`account_id`), FOREIGN KEY(`account_id`) REFERENCES `login_properties`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "tableName": "login",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER, `token` TEXT, `id` INTEGER, PRIMARY KEY(`account_id`), FOREIGN KEY(`account_id`) REFERENCES `user_properties`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "account_id",
@@ -36,7 +36,7 @@
         "indices": [],
         "foreignKeys": [
           {
-            "table": "login_properties",
+            "table": "user_properties",
             "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "tableName": "login_properties",
+        "tableName": "user_properties",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `username` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -78,7 +78,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3fed836b209f187349f7e3ba0a6cb5dc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '88691b4071e19909de14c202f3b300f2')"
     ]
   }
 }

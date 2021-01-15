@@ -3,7 +3,7 @@ package com.example.dcpfm_android_9339.api.auth.network_responses
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class LoginResponse(
+class LoginResponse (
     @SerializedName("error")
     @Expose
     var error: String,
@@ -16,23 +16,15 @@ class LoginResponse(
     @Expose
     var token: String,
 
-    @SerializedName("id") // this is a pk
+    @SerializedName("id")
     @Expose
     var id: Int,
 
     @SerializedName("name")
     @Expose
     var name: String
-
 ) {
     override fun toString(): String {
         return "LoginResponse(error='$error', message='$message', token='$token', id=$id, name='$name')"
     }
-
-
-//    @JvmName("getId1")
-//    fun getId(): Int {
-//        return id
-//    }
-
 }

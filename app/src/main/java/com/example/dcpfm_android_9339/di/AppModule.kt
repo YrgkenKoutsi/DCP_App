@@ -3,6 +3,7 @@ package com.example.dcpfm_android_9339.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
 import androidx.room.Room
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -70,7 +71,7 @@ class AppModule{
 
     @Singleton
     @Provides
-    fun provideUserPropertiesDao(db: AppDatabase): LoginPropertiesDao {
+    fun provideUserPropertiesDao(db: AppDatabase): UserPropertiesDao {
         return db.getUserPropertiesDao()
     }
 

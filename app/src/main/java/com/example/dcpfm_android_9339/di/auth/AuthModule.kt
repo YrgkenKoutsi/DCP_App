@@ -4,13 +4,16 @@ import android.content.SharedPreferences
 import com.example.dcpfm_android_9339.api.auth.OpenApiAuthService
 import com.example.dcpfm_android_9339.persistence.AuthTokenDao
 import com.example.dcpfm_android_9339.persistence.ClaimPropertiesDao
-import com.example.dcpfm_android_9339.persistence.LoginPropertiesDao
+import com.example.dcpfm_android_9339.persistence.UserPropertiesDao
 import com.example.dcpfm_android_9339.persistence.VisitPropertiesDao
 import com.example.dcpfm_android_9339.repository.auth.AuthRepository
 import com.example.dcpfm_android_9339.session.SessionManager
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 class AuthModule{
@@ -29,7 +32,7 @@ class AuthModule{
     fun provideAuthRepository(
         sessionManager: SessionManager,
         authTokenDao: AuthTokenDao,
-        loginPropertiesDao: LoginPropertiesDao,
+        userPropertiesDao: UserPropertiesDao,
         claimPropertiesDao: ClaimPropertiesDao,
         visitPropertiesDao: VisitPropertiesDao,
         openApiAuthService: OpenApiAuthService,
@@ -38,7 +41,7 @@ class AuthModule{
     ): AuthRepository {
         return AuthRepository(
             authTokenDao,
-            loginPropertiesDao,
+            userPropertiesDao,
             claimPropertiesDao,
             visitPropertiesDao,
             openApiAuthService,

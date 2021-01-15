@@ -38,6 +38,6 @@ data class LoginFields(
     }
 
     override fun toString(): String {
-        return "LoginState(username=$login_username, password=$login_password)"
+        return "LoginState(email=$login_username, password=$login_password)"
     }
 }
